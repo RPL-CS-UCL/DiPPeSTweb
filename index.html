@@ -14,7 +14,7 @@
   <meta name="description" content="DiPPeR: Diffusion-based 2D Path Planner applied on Legged Robots">
   <meta name="keywords" content="Path Planing, Diffusion, Quadrupedal Robots">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>DiPPeR: Diffusion-based 2D Path Planner&#10;applied on Legged Robots</title>
+  <title>DiPPeST: Diffusion-based Path Planner for Synthesizing&#10; Trajectories Applied on Quadruped Robots</title>
 
   <link href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro"
         rel="stylesheet">
@@ -46,11 +46,11 @@
     <div class="container">
       <div class="columns is-centered">
         <div class="column has-text-centered">
-          <h1 class="title is-1 publication-title">DiPPeR: Diffusion-based 2D Path Planner <br> applied on Legged Robots</h1>
+          <h1 class="title is-1 publication-title">DiPPeST: Diffusion-based Path Planner for Synthesizing Trajectories <br> Applied on Quadruped Robots</h1>
           <div class="is-size-4 publication-authors">
             <span class="author-block">
-              <a href="https://rpl-as-ucl.github.io/people/">Jianwei Liu*</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
               <a href="https://rpl-as-ucl.github.io/people/">Maria Stamatopoulou*</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+              <a href="https://rpl-as-ucl.github.io/people/">Jianwei Liu*</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
               <a href="https://dkanou.github.io/">Dimitrios Kanoulas</a>
               <br><br>
               <img src="./resources/rpl-ucl-logo.png" width="600"></img>
@@ -92,11 +92,11 @@
         <h3 class="title is-2">Abstract</h3>
         <div class="content has-text-justified">
           <p>
-            In this work, we present DiPPeR, a novel and fast 2D path planning framework for quadrupedal locomotion, leveraging diffusion-driven techniques. Our contributions include a scalable dataset generator for map images and corresponding trajectories, an image-conditioned diffusion planner for mobile robots, and a training/inference pipeline employing CNNs. We validate our approach in several mazes, as well as in real-world deployment scenarios on Boston Dynamic's Spot and Unitree's Go1 robots. DiPPeR performs on average 23 times faster for trajectory generation against both search based and data driven path planning algorithms with an average of 87% consistency in producing feasible paths of various length in maps of variable size, and obstacle structure.
+          We present DiPPeST, a novel image and goal conditioned diffusion-based trajectory generator for quadrupedal robot path planning. DiPPeST is a zero-shot adaptation of our previously introduced diffusion-based 2D global trajectory generator (DiPPeR). The introduced system incorporates a novel strategy for local real-time path refinements, that is re- active to camera input, without requiring any further training, image processing, or environment interpretation techniques. DiPPeST achieves 92% success rate in obstacle avoidance for nominal environments and an average of 88% success rate when tested in environments that are up to 3.5 times more complex in pixel variation than DiPPeR. A visual-servoing framework is developed to allow for real-world execution, tested on the quadruped robot, achieving 80% success rate in different environments and showcasing improved behavior than complex state-of-the-art local planners, in narrow environments.
           </p>
           <br>
           <p>
-           In the following sections we present DiPPeRs performance and genarilisation capabilities.
+           In the following sections we present DiPPeSTs performance and genarilisation capabilities.
           </p>
         </div>
         <div class="is-centered">
@@ -118,7 +118,7 @@
         <br>
         <h5>
           <center>
-           We validate DiPPeR's performance on maps on the Validation Datase, which comprises of maps 
+           We validate DiPPeST's performance on maps on the Validation Datase, which comprises of maps 
            not previously encountered <br> during the training but share a similar structural 
            pattern with those in the Training Dataset. 
           </center>
