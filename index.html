@@ -46,7 +46,7 @@
     <div class="container">
       <div class="columns is-centered">
         <div class="column has-text-centered">
-          <h1 class="title is-1 publication-title">DiPPeST: Diffusion-based Path Planner for Synthesizing Trajectories <br> Applied on Quadruped Robots</h1>
+          <h1 class="title is-1 publication-title">DiPPeST: Diffusion-based Path Planner for Synthesizing Trajectories Applied on Quadruped Robots</h1>
           <div class="is-size-4 publication-authors">
             <span class="author-block">
               <a href="https://rpl-as-ucl.github.io/people/">Maria Stamatopoulou*</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
@@ -55,6 +55,9 @@
               <br><br>
               <p>
                 Robot Perception Lab (<a href="https://rpl-as-ucl.github.io">RPL</a>), Computer Science @ UCL.
+              <br><br>
+              <p>
+                (Webpage Under development)
               <br><br>
               <img src="./resources/planning_rw.png" width="800"></img>
               <!-- <span class="brmod"><b>ICRA 2024 Submission</b></span> -->
@@ -100,6 +103,7 @@
           <p>
            In the following sections we present DiPPeSTs performance and genarilisation capabilities.
           </p>
+          <br></br>
         </div>
         <div class="is-centered">
           <!--<center>
@@ -116,40 +120,74 @@
   <div class="container">
     <div class="columns is-centered">
       <div class="column is-full-width">
-        <h2 class="title is-2" style="text-align: center; padding-bottom: 10px;">Genarilisation Performance</h2>
+        <br>
+        <h2 class="title is-2" style="text-align: center; padding-bottom: 12px;">Genarilisation Performance</h2>
         <br>
         <h5>
           <center>
-           We validate DiPPeST's performance on maps on the Validation Datase, which comprises of maps 
-           not previously encountered <br> during the training but share a similar structural 
-           pattern with those in the Training Dataset. 
+           We validate DiPPeST's generalisation capabilites for variation of input image size, pixel intensity variation and point of view, as DiPPeR was trained in top-down view black and white maps desplyed bellow.
           </center>
         </h5>
         <br></br>
-        <h3 class="title" style="text-align: center; padding-bottom: 7px;">Short Trajectories</h3>
+        <td>
+          <div class="row">
+            <div class="col">
+                <video autoplay muted loop playsinline controls src="./resources/dipper/VAL_1_short.mp4" width="50%"
+                       style="border-radius:10px; "></video>
+            </div>
+            <div class="col">
+              <video autoplay muted loop playsinline controls src="./resources/dipper/VAL_4_midium.mp4" width="50%"
+              style="border-radius:10px; "></video>
+            </div>
+            <div class="col">
+              <video autoplay muted loop playsinline controls src="./resources/dipper/LONGUSE2.mp4" width="50%"
+                      style="border-radius:10px; "></video>
+              </div>
+              <br></br>
+            </div>
+            <br></br>
+          </td>
+        </tr>
+        <h3 class="title" style="text-align: center; padding-bottom: 7px;"> Variation of Floor and Obstacle Pixel Intensity</h3>
+        <br>
         <h5>
           <center>
-           Path Length < 100
-          </center>
+           We investigate the cases where the obstacles are similar in pixel intensity (PI) to the traversable region or the traversible region includes pixels of multiple intensities, to showcase DiPPeST can generate paths beyond white trversable and balck non traversable regions</h5>
+         </center>
         </h5>
-        <br>
+        <br></br>
         <td>
             <div class="row">
               <div class="col">
-                  <video autoplay muted loop playsinline controls src="./resources/short/VAL_1_short.mp4" width="100%"
+                  <video autoplay muted loop playsinline controls src="./resources/edge_cases/edge1u.mp4" width="100%"
                          style="border-radius:10px; "></video>
               </div>
               <div class="col">
-                <video autoplay muted loop playsinline controls src="./resources/short/VAL_9_short.mp4" width="100%"
+                <video autoplay muted loop playsinline controls src="./resources/edge_cases/edge2u.mp4" width="100%"
                        style="border-radius:10px; "></video>
               </div>
               <div class="col">
-                <video autoplay muted loop playsinline controls src="./resources/short/VAL_10_short.mp4" width="100%"
+                <video autoplay muted loop playsinline controls src="./resources/edge_cases/edge3u.mp4" width="100%"
                        style="border-radius:10px; "></video>
               </div>
+              <br></br>
             </div>
           </td>
         </tr>
+        <td>
+          <div class="row">
+            <div class="col">
+                <h5> Obstacle-Floor PI Difference = 26%</h5>
+            </div>
+            <div class="col">
+              <h5> Obstacle-Floor PI Difference = 28%</h5>
+            </div>
+            <div class="col">
+              <h5> Image PI Variation = 82% </h5>
+            </div>
+            <br></br>
+          </div>
+        </td>
       </div> 
     </div>
   </div>
@@ -159,30 +197,44 @@
   <div class="container">
     <div class="columns is-centered">
       <div class="column is-full-width">
-        <h3 class="title" style="text-align: center; padding-bottom: 7px;">Medium Trajectories</h3>
+        <h3 class="title" style="text-align: center; padding-bottom: 7px;">Variation of Input Image Size</h3>
         <h5>
-          <center>
-           100 < Path Length < 200
-          </center>
+        <center>
+          DiPPeST receives camera input, which may have a variable FoV based on hardware specifications.
+        </center>
         </h5>
-        <br>
+          <br>
           <td>
             <div class="row">
               <div class="col">
-                  <video autoplay muted loop playsinline controls src="./resources/medium/VAL_4_midium.mp4" width="100%"
+                  <video autoplay muted loop playsinline controls src="./resources/size/size1.mp4" width="100%"
                          style="border-radius:10px; "></video>
               </div>
               <div class="col">
-                <video autoplay muted loop playsinline controls src="./resources/medium/VAL_8_midium.mp4" width="100%"
+                <video autoplay muted loop playsinline controls src="./resources/size/size2.mp4" width="100%"
                        style="border-radius:10px; "></video>
               </div>
               <div class="col">
-                <video autoplay muted loop playsinline controls src="./resources/medium/VAL_7_midium.mp4" width="100%"
+                <video autoplay muted loop playsinline controls src="./resources/size/size3.mp4" width="100%"
                        style="border-radius:10px; "></video>
               </div>
             </div>
           </td>
         </tr>
+        <td>
+          <div class="row">
+            <div class="col">
+              <h5> Training Dataset: [100,3,3]</h5>
+            </div>
+            <div class="col">
+              <h5> iPhone 11 Camera: [3264,2448,3] </h5>
+            </div>
+            <div class="col">
+              <h5>  RealSense D435i Camera [720,1280,3] </h5>
+            </div>
+            <br></br>
+          </div>
+        </td>
       </div> 
     </div>
   </div>
@@ -192,115 +244,49 @@
   <div class="container">
     <div class="columns is-centered">
       <div class="column is-full-width">
-        <h3 class="title" style="text-align: center; padding-bottom: 7px;">Long Trajectories</h3>
+        <h3 class="title" style="text-align: center; padding-bottom: 7px;">Variation of Camera Point-of-View</h3>
         <h5>
           <center>
-           Path Length > 200
+          DiPPeST should generalize to input images of varying PoV, reflecting variations in camera angle and heights in real-world scenarios.
           </center>
         </h5>
         <br></br>
           <td>
             <div class="row">
               <div class="col">
-                  <video autoplay muted loop playsinline controls src="./resources/long/lon2.mp4" width="100%"
+                  <video autoplay muted loop playsinline controls src="./resources/pov/pov1.mp4" width="100%"
                          style="border-radius:10px; "></video>
               </div>
               <div class="col">
-                <video autoplay muted loop playsinline controls src="./resources/long/LONGUSE2.mp4" width="100%"
+                <video autoplay muted loop playsinline controls src="./resources/pov/pov2.mp4" width="100%"
                        style="border-radius:10px; "></video>
               </div>
               <div class="col">
-                <video autoplay muted loop playsinline controls src="./resources/long/VAL_3_long.mp4" width="100%"
+                <video autoplay muted loop playsinline controls src="./resources/pov/pov3.mp4" width="100%"
                        style="border-radius:10px; "></video>
               </div>
             </div>
             <br>
           </td>
         </tr>
+        <td>
+          <div class="row">
+            <div class="col">
+              <h5> Top-Down</h5>
+            </div>
+            <div class="col">
+              <h5> Human-View </h5>
+            </div>
+            <div class="col">
+              <h5>Robot-View</h5>
+            </div>
+            <br></br>
+          </div>
+        </td>
       </div> 
     </div>
   </div>
 </section>
-
-<section class="section">
-  <div class="container">
-    <div class="columns is-centered">
-      <div class="column is-full-width">
-        <h2 class="title is-2" style="text-align: center; padding-bottom: 10px;">Out-of-Distribution Dataset</h2>
-        <br>
-        <h5>
-         <center>
-           We evaluate DiPPeR's generalisation capabilities on maps that differ from those present in the Training Dataset. 
-           </center>
-        </h5>
-        <br></br>
-        <h3 class="title" style="text-align: center; padding-bottom: 7px;">OOD Dataset</h3>
-        <h5>
-          <center>
-            Dataset consist of maps of different size, obstacle structure and colour, to test the generalisation capabilities of DiPPeR.
-           </center>
-          </h5>
-          <td>
-            <div class="row">
-              <div class="col">
-                  <video autoplay muted loop playsinline controls src="./resources/ood/round_use.mp4" width="100%"
-                         style="border-radius:10px; "></video>
-              </div>
-              <div class="col">
-                <video autoplay muted loop playsinline controls src="./resources/ood/gen11.mp4" width="100%"
-                       style="border-radius:10px; "></video>
-              </div>
-              <div class="col">
-                <video autoplay muted loop playsinline controls src="./resources/ood/GEN1_long.mp4" width="100%"
-                       style="border-radius:10px; "></video>
-              </div>
-            </div>
-          </td>
-        </tr>
-      </div> 
-    </div>
-  </div>
-</section>
-
-
-<section class="section">
-  <div class="container">
-    <div class="columns is-centered">
-      <div class="column is-full-width">
-          <h3 class="title" style="text-align: center; padding-bottom: 7px;">MRPB Dataset</h3>
-          <h5>
-            <center>
-             Dataset used to compare DiPPeR's inference speed with that of A*, N-A* and ViT-A*.  
-             DiPPeR's inference time is 0.4s for all maps, regardless of their size,  
-             which is on average 23 times faster against the next best performing SOTA planners. 
-            </center>
-          </h5>
-          <br>   
-            <div class="row">
-              <div class="col">
-                  <video autoplay muted loop playsinline controls src="./resources/comparison/GEN5_mid.mp4" width="100%"
-                         style="border-radius:10px; "></video>
-              </div>
-              <div class="col">
-                <video autoplay muted loop playsinline controls src="./resources/comparison/GEN7.mp4" width="100%"
-                       style="border-radius:10px; "></video>
-              </div>
-              <div class="col">
-                <video autoplay muted loop playsinline controls src="./resources/comparison/GEN6_1.mp4" width="100%"
-                       style="border-radius:10px; "></video>
-              </div>
-               <div class="col">
-                <video autoplay muted loop playsinline controls src="./resources/comparison/GEN10.mp4" width="100%"
-                       style="border-radius:10px; "></video>
-              </div>
-
-            </div>
-            <br>
-          </td>
-        </tr>
-      </div> 
-    </div>
-  </div>
 
 
 <section class="section">
@@ -311,36 +297,74 @@
         <h3 class="title is-2" style="text-align: center; padding-bottom: 10px;">Real World Deployment</h3>
          <h5>
             <center>
-              DiPPeR is integrated into the 2D ROS Navigation Stack, serving as the global path planner. 
-              When provided with the occupancy map, DiPPeR generates an initial global path. 
-              This path is subsequently fine-tuned by the TEB local planner to ensure the avoidance of violations 
-              of the robot's kinodynamic constraints. Additionally, the Phasespace Localisation system is employed 
-              to mitigate for state estimation inaccuracies.
+              For real-world evaluation, the Unitree Go1 robot is used with DiPPeST, taking as input images from an Intel RelSense D435i camera mounted on the front at an angle of 10 degree depression. For all experiments, 
+              the global plan is generated from the first frame (Sec. IV-A) while the robot remains stationary. 
+              We test DiPPeST’s performance for a) static environments and b) dynamic environments by measuring the
+               rate of successful attempts in avoiding obstacles and reaching the goal position across all attempts. 
             </center>
          </h5>
+         <br></br>
+         <h3>Static environments</h3>
+         
+         <h5> 
+          <center>
+            DiPPeST
+          </center>
+        </h5>
+        <br></br>
           <td>
               <div class="row">
-                  <video autoplay muted loop playsinline controls src="./resources/real_world/map1go1.mp4" width="100%"
+                  <video autoplay muted loop playsinline controls src="./resources/real_world/real1.mov" width="100%"
                          style="border-radius:10px; "></video>
               </div>
-              <div class="row">
-                <video autoplay muted loop playsinline controls src="./resources/real_world/map2spot.mp4" width="100%"
-                       style="border-radius:10px; "></video>
-              </div>
-              <div class="row">
-                <video autoplay muted loop playsinline controls src="./resources/real_world/map3spot.mp4" width="100%"
-                       style="border-radius:10px; "></video>
-         
-            </div>
+          <br></br>
+          <h5> 
+            <center>
+              IPlanner
+            </center>
+          </h5>
+          <br></br>
+          <div class="row">
+            <video autoplay muted loop playsinline controls src="./resources/real_world/real2.mov" width="100%"
+                    style="border-radius:10px; "></video>
+          </div>
+            <h5> 
+              <center>
+                NoMaD
+              </center>
+            </h5>
+            <br></br>
+            <div class="row">
+              <video autoplay muted loop playsinline controls src="./resources/real_world/real3.mov" width="100%"
+                      style="border-radius:10px; "></video>
+          </div>
             <br>
           </td>
         </tr>
+        <br></br>
+        <!-- <h3>Dynamic environments</h3>
+        <br></br>
+        <td>
+          <div class="row">
+              <video autoplay muted loop playsinline controls src="./resources/real_world/real1.mov" width="100%"
+                     style="border-radius:10px; "></video>
+          </div>
+          <div class="row">
+            <video autoplay muted loop playsinline controls src="./resources/real_world/real2.mov" width="100%"
+                   style="border-radius:10px; "></video>
+          </div>
+          <div class="row">
+            <video autoplay muted loop playsinline controls src="./resources/real_world/real3.mov" width="100%"
+                   style="border-radius:10px; "></video>
+        </div> -->
+        <br>
+      </td>
       </div> 
     </div>
   </div>
 </section>
 
-<section class="section" id="BibTeX">
+<!-- <section class="section" id="BibTeX">
   <div class="container content">
     <div align="left";>
 
@@ -355,7 +379,7 @@
 </div>
 </code></pre>
   </div>
-</section>
+</section> -->
 
 </body>
 
