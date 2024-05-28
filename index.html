@@ -101,9 +101,27 @@
           We present DiPPeST, a novel image and goal conditioned diffusion-based trajectory generator for quadrupedal robot path planning. DiPPeST is a zero-shot adaptation of our previously introduced diffusion-based 2D global trajectory generator (<a href="https://rpl-cs-ucl.github.io/DiPPeR/">DiPPeR</a>). The introduced system incorporates a novel strategy for local real-time path refinements, that is re- active to camera input, without requiring any further training, image processing, or environment interpretation techniques. DiPPeST achieves 92% success rate in obstacle avoidance for nominal environments and an average of 88% success rate when tested in environments that are up to 3.5 times more complex in pixel variation than DiPPeR. A visual-servoing framework is developed to allow for real-world execution, tested on the quadruped robot, achieving 80% success rate in different environments and showcasing improved behavior than complex state-of-the-art local planners, in narrow environments.
           </p>
           <p>
-           In the following sections we present DiPPeSTs performance and genarilisation capabilities.
+          DiPPeST is a zero-shot transfer on a model trained purely on black and white mazes with a top-down view, presented bellow. In the following sections we present DiPPeSTs performance and genarilisation capabilities in different camera input scenarions, to perform real-time vision-based local planning.  
           </p>
           <br></br>
+          <td>
+            <div class="row">
+              <div class="col">
+                  <video autoplay muted loop playsinline controls src="./resources/dipper/VAL_1_short.mp4" width="100%"
+                         style="border-radius:10px; "></video>
+              </div>
+              <div class="col">
+                <video autoplay muted loop playsinline controls src="./resources/dipper/VAL_4_midium.mp4" width="100%"
+                style="border-radius:10px; "></video>
+              </div>
+              <div class="col">
+                <video autoplay muted loop playsinline controls src="./resources/dipper/LONGUSE2.mp4" width="100%"
+                        style="border-radius:10px; "></video>
+                </div>
+                <br></br>
+              </div>
+              <br></br>
+            </td>
         </div>
         <div class="is-centered">
           <!--<center>
@@ -123,36 +141,18 @@
         <br>
         <h2 class="title is-2" style="text-align: center; padding-bottom: 12px;">Genarilisation Performance</h2>
         <br>
-        <h5>
+        <h3>
           <center>
-           We validate DiPPeST's generalisation capabilites for variation of input image size, pixel intensity variation and point of view, as DiPPeR was trained in top-down view black and white maps desplyed bellow.
+           We validate DiPPeST's generalisation capabilites for variation of image input size, pixel intensity variation and point of view. This would test the abbility of the model to generate trajectories in RGB egocentric scenarios, with the obstacle and traversable region being of similar colours. 
           </center>
-        </h5>
+        </h3>
         <br></br>
-        <td>
-          <div class="row">
-            <div class="col">
-                <video autoplay muted loop playsinline controls src="./resources/dipper/VAL_1_short.mp4" width="50%"
-                       style="border-radius:10px; "></video>
-            </div>
-            <div class="col">
-              <video autoplay muted loop playsinline controls src="./resources/dipper/VAL_4_midium.mp4" width="50%"
-              style="border-radius:10px; "></video>
-            </div>
-            <div class="col">
-              <video autoplay muted loop playsinline controls src="./resources/dipper/LONGUSE2.mp4" width="50%"
-                      style="border-radius:10px; "></video>
-              </div>
-              <br></br>
-            </div>
-            <br></br>
-          </td>
         </tr>
-        <h3 class="title" style="text-align: center; padding-bottom: 7px;"> Variation of Floor and Obstacle Pixel Intensity</h3>
+        <h3 class="title" style="text-align: center; padding-bottom: 7px;"> 1. Variation of Image Pixel Intensity</h3>
         <br>
         <h5>
           <center>
-           We investigate the cases where the obstacles are similar in pixel intensity (PI) to the traversable region or the traversible region includes pixels of multiple intensities, to showcase DiPPeST can generate paths beyond white trversable and balck non traversable regions</h5>
+           We investigate the cases where the obstacles are similar in pixel intensity (PI) to the traversable region as well as the case of the traversible region including pixels of multiple intensities, to showcase that DiPPeST can generate paths from RGB input, beyond the white traversable and balck non traversable regions of the training dataset.</h5>
          </center>
         </h5>
         <br></br>
@@ -197,10 +197,10 @@
   <div class="container">
     <div class="columns is-centered">
       <div class="column is-full-width">
-        <h3 class="title" style="text-align: center; padding-bottom: 7px;">Variation of Input Image Size</h3>
+        <h3 class="title" style="text-align: center; padding-bottom: 7px;">2. Variation of Input Image Size</h3>
         <h5>
         <center>
-          DiPPeST receives camera input, which may have a variable FoV based on hardware specifications.
+          DiPPeST performs local refinmnetsbased on visual input, hence being subject to variable camera FoV based on hardware specifications.
         </center>
         </h5>
           <br>
@@ -244,10 +244,11 @@
   <div class="container">
     <div class="columns is-centered">
       <div class="column is-full-width">
-        <h3 class="title" style="text-align: center; padding-bottom: 7px;">Variation of Camera Point-of-View</h3>
+        <h3 class="title" style="text-align: center; padding-bottom: 7px;">3. Variation of Camera Point-of-View</h3>
         <h5>
           <center>
-          DiPPeST should generalize to input images of varying PoV, reflecting variations in camera angle and heights in real-world scenarios.
+          DiPPeST should generalize to input images of varying PoV, reflecting variations in camera angle for real-world scenarios. The trainig dataset includes top-down maps, hence provinf generalisation from an 
+          egocentric perspective is essential to achieve local refeinments. 
           </center>
         </h5>
         <br></br>
@@ -294,7 +295,7 @@
     <div class="columns is-centered">
       <div class="column is-full-width">
         <br> <br>
-        <h3 class="title is-2" style="text-align: center; padding-bottom: 10px;">Real World Deployment</h3>
+        <h2 class="title is-2" style="text-align: center; padding-bottom: 10px;">Real World Deployment</h2>
          <h5>
             <center>
               For real-world evaluation, the Unitree Go1 robot is used with DiPPeST, taking as input images from an Intel RelSense D435i camera mounted on the front at an angle of 10 degree depression. For all experiments, 
@@ -304,52 +305,32 @@
             </center>
          </h5>
          <br></br>
-         <h3>Static environments</h3>
-         
-         <h5> 
-          <center>
-            DiPPeST
-          </center>
-        </h5>
+         <h3>1. Static environments</h3>
         <br></br>
           <td>
               <div class="row">
-                  <video autoplay muted loop playsinline controls src="./resources/real_world/real1.mov" width="100%"
+                <div class="column">
+                  <video autoplay muted loop playsinline controls src="./resources/real_world/static1.mp4" width="100%"
                          style="border-radius:10px; "></video>
+                  </div>
+                <div class="column">
+                  <video autoplay muted loop playsinline controls src="./resources/real_world/static2.mp4" width="100%"
+                          style="border-radius:10px; "></video>
+                  </div>
               </div>
           <br></br>
-          <h5> 
-            <center>
-              IPlanner
-            </center>
-          </h5>
-          <br></br>
-          <div class="row">
-            <video autoplay muted loop playsinline controls src="./resources/real_world/real2.mov" width="100%"
-                    style="border-radius:10px; "></video>
-          </div>
-            <h5> 
-              <center>
-                NoMaD
-              </center>
-            </h5>
-            <br></br>
-            <div class="row">
-              <video autoplay muted loop playsinline controls src="./resources/real_world/real3.mov" width="100%"
-                      style="border-radius:10px; "></video>
-          </div>
             <br>
           </td>
         </tr>
         <br></br>
-        <!-- <h3>Dynamic environments</h3>
+        <h3>2. Dynamic environments</h3>
         <br></br>
         <td>
           <div class="row">
-              <video autoplay muted loop playsinline controls src="./resources/real_world/real1.mov" width="100%"
+              <video autoplay muted loop playsinline controls src="./resources/real_world/dynamic.mp4" width="100%"
                      style="border-radius:10px; "></video>
           </div>
-          <div class="row">
+          <!-- <div class="row">
             <video autoplay muted loop playsinline controls src="./resources/real_world/real2.mov" width="100%"
                    style="border-radius:10px; "></video>
           </div>
