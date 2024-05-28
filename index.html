@@ -101,7 +101,7 @@
           We present DiPPeST, a novel image and goal conditioned diffusion-based trajectory generator for quadrupedal robot path planning. DiPPeST is a zero-shot adaptation of our previously introduced diffusion-based 2D global trajectory generator (<a href="https://rpl-cs-ucl.github.io/DiPPeR/">DiPPeR</a>). The introduced system incorporates a novel strategy for local real-time path refinements, that is re- active to camera input, without requiring any further training, image processing, or environment interpretation techniques. DiPPeST achieves 92% success rate in obstacle avoidance for nominal environments and an average of 88% success rate when tested in environments that are up to 3.5 times more complex in pixel variation than DiPPeR. A visual-servoing framework is developed to allow for real-world execution, tested on the quadruped robot, achieving 80% success rate in different environments and showcasing improved behavior than complex state-of-the-art local planners, in narrow environments.
           </p>
           <p>
-          DiPPeST is a zero-shot transfer on a model trained purely on black and white mazes with a top-down view, presented bellow. In the following sections we present DiPPeSTs performance and genarilisation capabilities in different camera input scenarions, to perform real-time vision-based local planning.  
+            DiPPeST is a zero-shot transfer model trained purely on black and white mazes with a top-down view, presented below. In the following sections, we present DiPPeST's performance and generalization capabilities in different camera input scenarios to perform real-time vision-based local planning.
           </p>
           <br></br>
           <td>
@@ -143,7 +143,7 @@
         <br>
         <h3>
           <center>
-           We validate DiPPeST's generalisation capabilites for variation of image input size, pixel intensity variation and point of view. This would test the ability of the model to generate trajectories in RGB egocentric scenarios, with the obstacle and traversable region being of similar colours. 
+            We validate DiPPeST's generalization capabilities for variations in image input size, pixel intensity variation, and point of view. This will test the ability of the model to generate trajectories in RGB egocentric scenarios, with the obstacle and traversable regions being of similar colors.
           </center>
         </h3>
         <br></br>
@@ -152,7 +152,7 @@
         <br>
         <h5>
           <center>
-           We investigate the cases where the obstacles are similar in pixel intensity (PI) to the traversable region as well as the case of the traversible region including pixels of multiple intensities, to showcase that DiPPeST can generate paths from RGB input, beyond the white traversable and balck non traversable regions of the training dataset.</h5>
+            We investigate the cases where the obstacles are similar in pixel intensity (PI) to the traversable region, as well as the case of the traversable region including pixels of multiple intensities, to showcase that DiPPeST can generate paths from RGB input beyond the white traversable and black non-traversable regions of the training dataset.</h5>
          </center>
         </h5>
         <br></br>
@@ -200,7 +200,7 @@
         <h3 class="title" style="text-align: center; padding-bottom: 7px;">2. Variation of Input Image Size</h3>
         <h5>
         <center>
-          DiPPeST performs local refinmnetsbased on visual input, hence being subject to variable camera FoV based on hardware specifications.
+          DiPPeST performs local refinements based on visual input, hence being subject to variable camera FoV based on hardware specifications.
         </center>
         </h5>
           <br>
@@ -247,8 +247,7 @@
         <h3 class="title" style="text-align: center; padding-bottom: 7px;">3. Variation of Camera Point-of-View</h3>
         <h5>
           <center>
-          DiPPeST should generalize to input images of varying PoV, reflecting variations in camera angle for real-world scenarios. The trainig dataset includes top-down maps, hence provinf generalisation from an 
-          egocentric perspective is essential to achieve local refeinments. 
+            DiPPeST should generalize to input images of varying PoV, reflecting variations in camera angle for real-world scenarios. The training dataset includes top-down maps, hence proving generalization from an egocentric perspective is essential to achieve local refinements.
           </center>
         </h5>
         <br></br>
@@ -298,14 +297,11 @@
         <h2 class="title is-2" style="text-align: center; padding-bottom: 10px;">Real World Deployment</h2>
          <h5>
             <center>
-              For real-world evaluation, the Unitree Go1 robot is used with DiPPeST, taking as input images from an Intel RelSense D435i camera mounted on the front at an angle of 10 degree depression. For all experiments, 
-              the global plan is generated from the first frame (Sec. IV-A) while the robot remains stationary. 
-              We test DiPPeST’s performance for a) static environments and b) dynamic environments by measuring the
-               rate of successful attempts in avoiding obstacles and reaching the goal position across all attempts. 
+              For real-world evaluation, the Unitree Go1 robot is used with DiPPeST, taking input images from an Intel RealSense D435i camera mounted on the front at an angle of 10 degrees depression. For all experiments, the global plan is generated from the first frame (Sec. IV-A) while the robot remains stationary. We test DiPPeST’s performance in a) static environments and b) dynamic environments by measuring the rate of successful attempts in avoiding obstacles and reaching the goal position across all attempts.
             </center>
          </h5>
          <br></br>
-         <h3>1. Static environments</h3>
+         <h3>1. Static Environments</h3>
         <br></br>
           <td>
               <div class="row">
@@ -323,7 +319,7 @@
           </td>
         </tr>
         <br></br>
-        <h3>2. Dynamic environments</h3>
+        <h3>2. Dynamic Environments</h3>
         <br></br>
         <td>
           <div class="row">
